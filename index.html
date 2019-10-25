@@ -100,6 +100,7 @@ ol{
 					<header class="major">
 Data Sources
                     </header>
+					<div class="row uniform" id='tablerow'></div>				
         <script src="https://d3js.org/d3.v3.min.js"></script> 
         <!-- <script src="d3.min.js?v=3.2.8"></script>-->
 
@@ -107,7 +108,7 @@ Data Sources
             d3.text("datadiscovery.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
-                var container = d3.select("body")
+                var container = d3.select("#tablerow")
                     .append("table")
 
                     .selectAll("tr")
