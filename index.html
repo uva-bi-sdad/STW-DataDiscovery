@@ -156,7 +156,10 @@ Data Sources
 			</footer>
 <script>
 	$(document).ready(function() {
-    $('#tableid').DataTable();
+    $('#tableid').DataTable( {
+        "scrollY": 200,
+        "scrollX": true
+    } );
 } );
 </script>
 	</body>
