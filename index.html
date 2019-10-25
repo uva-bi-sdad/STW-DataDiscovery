@@ -116,8 +116,10 @@ Data Sources
                     .append("table")
 		    .attr("id","tableid")
 			.append("thead")
-			.append("tr")
+			.selectAll("tr")
 			.data(header).enter()
+			.append("tr")
+			
 			.selectAll("td")
                         .data(function(d) { return d; }).enter()
                         .append("td")
