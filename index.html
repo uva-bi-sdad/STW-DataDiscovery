@@ -115,15 +115,13 @@ Data Sources
                 var container = d3.select("#tablerow")
                     .append("table")
 		    .attr("id","tableid")
-			.append("thead")
-			.selectAll("tr")
+			.append("thead").append("tr")
 			.data(header).enter()
 			.append("tr")
-			
-			.selectAll("td")
-                        .data(function(d) { return d; }).enter()
-                        .append("td")
-                        .text(function(d) { return d; });
+			.text(function(d) {
+            return d;
+        });
+
 
               var information=d3.select("#tableid")
 	      			.append("tbody")
