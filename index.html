@@ -109,12 +109,24 @@ Data Sources
         <script type="text/javascript"charset="utf-8">
             d3.text("datadiscovery.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
+		    var header=parsedCSV.shift();
+		    console.log(header)
 
                 var container = d3.select("#tablerow")
                     .append("table")
 		    .attr("id","tableid")
+			.append("thead")
+			.selectAll("tr")
+			.data(header).enter()
+			.append("tr")
+			.selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
 
-                    .selectAll("tr")
+              var information=d3.select("#tableid")
+	      			.append("tbody")
+	      			.selectAll("tr")
                         .data(parsedCSV).enter()
                         .append("tr")
 
