@@ -117,7 +117,7 @@ Data Sources
 		    .attr("id","tableid")
 			.append("thead").append("tr")
 			.data(header).enter()
-			.append("tr")
+			.append("th")
 			.text(function(d) {
             return d;
         });
