@@ -110,6 +110,7 @@ Data Sources
 
                 var container = d3.select("#tablerow")
                     .append("table")
+		    .attr("id",tableid")
 
                     .selectAll("tr")
                         .data(parsedCSV).enter()
