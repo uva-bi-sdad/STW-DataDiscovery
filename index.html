@@ -109,14 +109,14 @@ Data Sources
         <script type="text/javascript"charset="utf-8">
             d3.text("datadiscovery.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
-		    var header=parsedCSV.shift();
-		    console.log(header)
+
 
                 var container = d3.select("#tablerow")
                     .append("table")
 		    .attr("id","tableid")
 			.append("thead").append("tr")
-			.data(header).enter()
+			.selectAll("th")
+			.data(parsedCSV[0]).enter()
 			.append("th")
 			.text(function(d) {
             return d;
@@ -126,7 +126,7 @@ Data Sources
               var information=d3.select("#tableid")
 	      			.append("tbody")
 	      			.selectAll("tr")
-                        .data(parsedCSV).enter()
+                        .data(parsedCSV.slice(1)).enter()
                         .append("tr")
 
                     .selectAll("td")
